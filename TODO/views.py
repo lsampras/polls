@@ -32,10 +32,14 @@ def create(request):
         todo.save()
         return HttpResponseRedirect(reverse('TODO:index'))
 
-def delete(request):
-    # TODO: add delete functionality
-    return HttpResponse("delete")
+def delete(request,todo_id):
+    todo = TODO.objects.get(pk=todo_id)
+    todo.delete()
+    return HttpResponseRedirect(reverse('TODO:index'))
 
-def update(request):
-    #TODO: add update functionality
-    return HttpResponse("update")
+def update(request,todo_id):
+    todo = TODO.objects.get(pk=todo_id)
+    todo.done = not todo.done
+
+    todo.save()
+    return HttpResponseRedirect(reverse('TODO:index'))

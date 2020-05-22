@@ -3,7 +3,13 @@
     <ul>
         {% for todo in todo_list %}
 
-            <li>{{ todo.task }}</li>
+            <li>
+                <p>
+                    {{ todo.task }}
+                    <a href="{% url 'TODO:update' todo.id %}"> {% if todo.done %} Mark as Not Completed {% else %} Mark as Completed {% endif %}  </a>  
+                    <a href="{% url 'TODO:delete' todo.id %}">Delete</a>
+                </p>
+            </li>
 
         {% endfor %}
     </ul>
@@ -12,3 +18,5 @@
 <p>no TODO's are available.</p>
 
 {% endif %}
+
+<a href="{% url 'TODO:new'%}"> Add new TODO's</a>

@@ -8,4 +8,4 @@ class TODO (models.Model):
     date = models.DateTimeField('date created')
 
     def __str__(self):
-        return self.task_text
+        return self.task
