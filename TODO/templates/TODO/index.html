@@ -1,0 +1,14 @@
+{% if todo_list %}
+
+    <ul>
+        {% for todo in todo_list %}
+
+            <li>{{ todo.task }}</li>
+
+        {% endfor %}
+    </ul>
+{% else %}
+
+<p>no TODO's are available.</p>
+
+{% endif %}
